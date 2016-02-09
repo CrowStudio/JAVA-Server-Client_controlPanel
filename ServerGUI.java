@@ -19,13 +19,13 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
-	ServerGUI Copyright (C) 2016  Daniel Arvidsson & Johanna Baecklund
+	ClientGUI Copyright (C) 2016  Daniel Arvidsson & Johanna Baecklund
 	This program comes with ABSOLUTELY NO WARRANTY!!!
 	This is free software, and you are welcome to redistribute it, but
 	please credit the authors.
 	
 	Contact: Daniel Arvidsson:	daniel.arvidsson@fripost.org
-			 Johanna Baecklund:	j.baecklund@gmail.com	
+		Johanna Baecklund:	j.baecklund@gmail.com
 
 ************************************************************************
 	Things to do:
@@ -35,7 +35,7 @@
 	LEDs or other things connected to the GPIO. However some further 
 	implementation of the library PI4J and some change of code is 
 	needed. The PI4J library can be found here: 
-							<http://pi4j.com/example/control.html>
+	<http://pi4j.com/example/control.html>
 	
 	On server: print name of disconnected client.
 	
@@ -48,39 +48,36 @@
 	is offline, the client should try X times to connect.
 	
 	
-					======== Known bugs: ========
+			======== Known bugs: ========
 	
 	General bug 1.1:	Lack of UTF8 encoding when using cross
-						platforms.
+				platforms.
 	
-	Symptoms:			Weird ASCII signs when writing å, ä, ö.
+	Symptoms:		Weird ASCII signs when writing å, ä, ö.
 	
 	Suggested solution:	Forced UTF8 encoding when sending strings.
 	
 	
 	ServerGUI bug 2.1:	If disconnecting a client, the server still 
-						keeps the client in memory.
+				keeps the client in memory.
 						
-	Symptoms: 			The server keeps printing "Sent to: 
-						<disconnected client>". Probably also tries
-						to send the message to the disconnected client.
+	Symptoms: 		The server keeps printing "Sent to: 
+				<disconnected client>". Probably also tries
+				to send the message to the disconnected client.
 						
-	Suggested solution: Implementing deletion of client information
-						when disconnecting.
+	Suggested solution: 	Implementing deletion of client information
+				when disconnecting.
 
 ************************************************************************
 	Warning! Due to lack of secure protocol, only run on local network!
 	
 	How to use:
 	First - From host-unit start the ServerGUI from terminal, enter:
-			$ java ClientGUI <name>
+			$ java ServerGUI
 	
-	Second - In ClinetGUI you have to make a change in the public class
-	ClientGUI and enter IP address of the host-server and the PORT used.
-	
-	Third - On remote-unit start the ClientGUI from terminal, enter:
+	Second - On remote-unit start the ClientGUI from terminal, enter:
 			$ java ClientGUI <name>
-
+		
 ***********************************************************************/
 import java.awt.Color;
 import java.awt.GridLayout;
